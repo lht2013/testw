@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="./jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<script>
+$(function(){
+	$.ajax({
+	  url:"http://172.16.201.151:3000/admin/goods/list",
+	  type: "post",
+	  data: ({
+		  username:"a",
+		  password:"b"
+	  }),
+	  dataType:"json",
+	  beforeSend:Request,
+	  success :Response
+  });				
+  function Request(){
+	
+  }
+function Response(data){
+	alert(data.err);	
+}
+  
+  
+  
+  
+  
+/* $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://www.a.com/test/3.php",
+	  data: ({
+		  username:"a",
+		  password:"b"
+	  }),
+            dataType: "json",
+            success: function(msg) {
+                alert(msg);
+            },
+            error: function(a, b, c) {
+                //alert(a + b + c);
+            }
+        }); */ 
+/*$.ajax({
+        dataType: 'jsonp',
+        url: './1.php',
+        success: function(data){
+                alert("asd");
+        }
+}); */ 
+
+
+
+
+
+
+/*$.ajax({
+        dataType: 'jsonp',
+        url: 'http://www.a.com/test/1.php',
+        success: function(data){
+                //处理data数据
+				alert("ads");
+        }
+});*/
+
+});
+
+
+/*function jsonCallBack(url,callback)
+{
+$.getScript(url,function(){
+callback(json);
+});
+}
+function fun1()
+{
+jsonCallBack('http://172.16.201.151:3000/admin/goods/list',function(json){
+alert(json.err);
+})
+}*/
+
+</script>
+
+<script type="text/javascript">  
+    $.ajax({  
+        url:"http://www.a.com/test/1.php", 
+        dataType:'jsonp',  
+        data:'',  
+        jsonp:'callback',  
+        success:function(result) {  
+            for(var i in result) {  
+               // alert(i+":"+result[i]);//循环输出a:1,b:2,etc.  
+            } 
+			//alert(result);
+        },  
+        timeout:3000  
+    });  
+</script>
+<button type="button" onclick="fun1()">跨域访问</button>
+</body>
+</html>
